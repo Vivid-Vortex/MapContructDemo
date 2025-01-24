@@ -29,7 +29,7 @@ dependencies {
 	// Lombok Dependencies (Optional)
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	// This lombok dependency is specifically for the Lombok-MapStruct binding, since we are using Lombok Source and Target DTOs
+	// This lombok dependency is specifically for the Lombok-MapStruct binding, since we are using Lombok in Source and Target DTOs to generate Getter and Setters
 	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 
 	// Test Dependencies
