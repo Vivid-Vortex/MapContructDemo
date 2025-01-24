@@ -1,9 +1,9 @@
 package com.demo.mapstruct.MapStructDemo.mapper;
 
 import com.demo.mapstruct.MapStructDemo.source.dto.SourceAddress;
-import com.demo.mapstruct.MapStructDemo.source.dto.SourceList;
+import com.demo.mapstruct.MapStructDemo.source.dto.SourceList_Type_1;
 import com.demo.mapstruct.MapStructDemo.target.dto.TargetAddress;
-import com.demo.mapstruct.MapStructDemo.target.dto.TargetList;
+import com.demo.mapstruct.MapStructDemo.target.dto.TargetList_Type_1;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
@@ -14,7 +14,7 @@ public interface ListToListMapper_Type_1 {
 
     // Explicitly map SourceList to TargetList
     @Mapping(source = "addresses", target = "addresses")
-    TargetList sourceListToTargetList(SourceList sourceList);
+    TargetList_Type_1 sourceListToTargetList(SourceList_Type_1 sourceList);
 
 
     // Map individual SourceAddress to TargetAddress

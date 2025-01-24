@@ -1,9 +1,9 @@
 package com.demo.mapstruct.MapStructDemo.mapper;
 
 import com.demo.mapstruct.MapStructDemo.source.dto.SourceAddress;
-import com.demo.mapstruct.MapStructDemo.source.dto.SourceList;
+import com.demo.mapstruct.MapStructDemo.source.dto.SourceList_Type_1;
 import com.demo.mapstruct.MapStructDemo.target.dto.TargetAddress;
-import com.demo.mapstruct.MapStructDemo.target.dto.TargetList;
+import com.demo.mapstruct.MapStructDemo.target.dto.TargetList_Type_1;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -30,11 +30,11 @@ public class ListToListMapperTest {
         sourceAddress2.setSourceZip("22222");
         sourceAddress2.setSourceCountry("CountryB");
 
-        SourceList sourceList = new SourceList();
+        SourceList_Type_1 sourceList = new SourceList_Type_1();
         sourceList.setAddresses(Arrays.asList(sourceAddress1, sourceAddress2));
 
         // Act: Use the mapper to map the SourceList to TargetList
-        TargetList targetList = listToListMapper.sourceListToTargetList(sourceList);
+        TargetList_Type_1 targetList = listToListMapper.sourceListToTargetList(sourceList);
 
         // Assert: Check that the target list has the same size and the individual address fields are correctly mapped
         assertEquals(2, targetList.getAddresses().size());

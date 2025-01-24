@@ -9,6 +9,6 @@ import java.util.List;
 @Data
 @Getter
 @Setter
-public class TargetList {
+public class TargetList_Type_1 {
     private List<TargetAddress> addresses;
 }
