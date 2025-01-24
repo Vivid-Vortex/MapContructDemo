@@ -1,4 +1,4 @@
-The `@Mapping(expression = "...", target = "...")` in MapStruct allows you to provide a custom Java expression for mapping a source field to a target field. This is especially useful when you need more control over the mapping process or when the mapping logic cannot be directly inferred by MapStruct.
+The `@Mapping(expression = "...", target = "...")` in MapStruct allows you to provide a custom Java expression for mapping a source field to a target field. <mark>This is especially useful when you need more control over the mapping process or when the mapping logic cannot be directly inferred by MapStruct.</mark>
 
 ### Use of `expression`:
 1. **Custom Mapping Logic**:
@@ -28,7 +28,7 @@ TargetList_Type_2 sourceListToTargetList(SourceList_Type_2 sourceList);
 1. At runtime, MapStruct generates code that includes your custom Java expression for mapping the field.
 2. This allows the generated code to handle complex transformations that MapStruct's default behavior cannot achieve.
 
-### When to Use:
+### <mark>When to Use:</mark>
 - When you need to:
     1. Perform field-specific transformations (e.g., converting units, handling date formats).
     2. Access nested or computed properties.
