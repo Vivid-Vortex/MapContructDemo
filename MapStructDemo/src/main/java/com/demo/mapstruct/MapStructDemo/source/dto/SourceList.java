@@ -9,10 +9,6 @@ import java.util.List;
 @Data
 @Getter
 @Setter
-public class SourceUserLocation {
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String phoneNumber;
+public class SourceList {
     private List<SourceAddress> addresses;
 }
