@@ -52,6 +52,53 @@ Then use:
 ```
 
 This keeps the code cleaner and makes the mapping logic reusable.
+---
+### **Question**
+In the following mappings, we are not specifying the `source`. Does this mean the `expression` in the `@Mapping` annotation is being used as the source when we define it?
+
+```java
+@Mapping(expression = "java(sourceList_Type_2.getSourcePerson() != null &&" +
+        "sourceList_Type_2.getSourcePerson().getAddresses() != null ?" +
+        "mapSourceAddresses(sourceList_Type_2.getSourcePerson().getAddresses()) : java.util.Collections.emptyList())", 
+        target = "targetPerson.addresses")
+TargetList_Type_2 sourceListToTargetList(SourceList_Type_2 sourceList);
+
+@Mapping(expression = "java(checkString(sourceAddress.getSourceStreet()))", target = "targetStreet")
+@Mapping(expression = "java(checkString(sourceAddress.getSourceCity()))", target = "targetCity")
+@Mapping(expression = "java(checkString(sourceAddress.getSourceState()))", target = "targetState")
+@Mapping(expression = "java(checkString(sourceAddress.getSourceZip()))", target = "targetZip")
+@Mapping(expression = "java(checkString(sourceAddress.getSourceCountry()))", target = "targetCountry")
+TargetAddress sourceAddressToTargetAddress(SourceAddress sourceAddress);
+```
+
+---
+
+### **Answer**
+Yes, when using `expression` in the `@Mapping` annotation, the `expression` itself acts as the source. In this case, you do not need to explicitly specify the `source` parameter.
+
+Here’s how it works:
+1. The `expression` provides a Java code snippet that MapStruct uses to determine how to populate the target field.
+2. The `source` parameter is usually used for direct field mapping (e.g., `source = "fieldName"`). However, when you define an `expression`, it takes precedence and overrides the default behavior of using a direct field mapping.
+
+#### Example Breakdown:
+- In the first mapping:
+  ```java
+  @Mapping(expression = "java(sourceList_Type_2.getSourcePerson() != null &&" +
+          "sourceList_Type_2.getSourcePerson().getAddresses() != null ?" +
+          "mapSourceAddresses(sourceList_Type_2.getSourcePerson().getAddresses()) : java.util.Collections.emptyList())", 
+          target = "targetPerson.addresses")
+  ```
+    - The `expression` evaluates to a list of addresses.
+    - MapStruct populates the `targetPerson.addresses` field using the result of this Java expression.
+
+- In the second mapping:
+  ```java
+  @Mapping(expression = "java(checkString(sourceAddress.getSourceStreet()))", target = "targetStreet")
+  ```
+    - The `expression` calls the `checkString` method with `sourceAddress.getSourceStreet()` as an argument.
+    - The return value from `checkString` is assigned to `targetStreet`.
+
+In summary, when `expression` is used, it acts as the source, and you don't need to provide the `source` parameter explicitly.
 
 ---
 ### Common Issue might encounter is "cannot find symbol sourceList" in case of below mapper method
