@@ -1,5 +1,6 @@
 package com.demo.mapstruct.MapStructDemo.mapper;
 
+import com.demo.DocumentationLink;
 import com.demo.mapstruct.MapStructDemo.source.dto.SourceAddress;
 import com.demo.mapstruct.MapStructDemo.source.dto.SourceList_Type_2;
 import com.demo.mapstruct.MapStructDemo.target.dto.TargetAddress;
@@ -16,6 +17,15 @@ import java.util.stream.Collectors;
  * all you need to do is to create a simple one-to-one mapping for the actual object inside the list seperately.
  * And simply specify the source and target list in the main mapper method.
  */
+
+
+/**
+ * For detailed documentation, see:
+ * <a href="docs/expression.md">/doc/expression.md</a>
+ */
+@DocumentationLink("https://github.com/Vivid-Vortex/MapContructDemo/blob/main/MapStructDemo/doc/expression.md")
+// Below documentation link points to Answer section in expression.md. It is to demonstrate that you can link to a specific section in the documentation.
+//@DocumentationLink("https://github.com/Vivid-Vortex/MapContructDemo/blob/main/MapStructDemo/doc/expression.md#Answer")
 @Mapper(componentModel = "spring", unmappedSourcePolicy = ReportingPolicy.IGNORE, nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
 public interface ListToListMapper_Type_3 {
 
