@@ -4,10 +4,7 @@ import com.demo.mapstruct.MapStructDemo.source.dto.SourceAddress;
 import com.demo.mapstruct.MapStructDemo.source.dto.SourceList_Type_2;
 import com.demo.mapstruct.MapStructDemo.target.dto.TargetAddress;
 import com.demo.mapstruct.MapStructDemo.target.dto.TargetList_Type_2;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.NullValueCheckStrategy;
-import org.mapstruct.ReportingPolicy;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
 import java.util.Collections;
@@ -27,6 +24,7 @@ public interface ListToListMapper_Type_3 {
             "sourceList_Type_2.getSourcePerson().getAddresses() != null ?" +
             "mapSourceAddresses(sourceList_Type_2.getSourcePerson().getAddresses()) : java.util.Collections.emptyList())", // You can also return null in place of java.util.Collections.emptyList()
             target = "targetPerson.addresses")
+    @BeanMapping(ignoreByDefault = true) // Ignore all unmapped properties by default and only map those getting explicitly mapped here.
     TargetList_Type_2 sourceListToTargetList(SourceList_Type_2 sourceList);
 
     // Use expression for individual SourceAddress to TargetAddress mapping
