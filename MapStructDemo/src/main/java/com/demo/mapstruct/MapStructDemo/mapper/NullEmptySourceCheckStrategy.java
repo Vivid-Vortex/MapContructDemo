@@ -16,6 +16,10 @@ import org.mapstruct.NullValueCheckStrategy;
  * if any source is empty, then explore:
  *
  * @BeanMapping(ignoreByDefault = true) // Ignore all unmapped properties by default and only map those getting explicitly mapped here.
+ *
+ * If if you have specified @BeanMapping annotation at the parent mapping level, then you don't need to do it again for child mapping.
+ * check ListToListMapper_Type_3.java for example. Here @BeanMapping is specified at parent level on sourceListToTargetList method. Then all other linked child
+ * method need not do it again.
  */
 public interface NullEmptySourceCheckStrategy {
     @Mapping(source = "phoneNumber", target = "mobile", defaultValue = "1234567890") // If phoneNumber is null, then default value will be used.
