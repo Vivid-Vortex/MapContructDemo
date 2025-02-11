@@ -6,6 +6,12 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
+/**
+ * Abstract class with abstract methods for mapping between UserDtoAbstract and UserEntityAbstract.
+ * The abstract methods are implemented in the generated implementation class by MapStruct.
+ * This abstract class is also using an external method which would normally be part of external method. In thact you would need to
+ * provide auto-wiring for the external method. So the better and easier way is to use expression.
+ */
 @Mapper(componentModel = "spring")
 public abstract class AbstractUserMapper_using_abstract_methods {
 
