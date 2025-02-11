@@ -12,6 +12,7 @@ import org.mapstruct.factory.Mappers;
  * This abstract class is also using an external method which would normally be part of external method. In thact you would need to
  * provide auto-wiring for the external method. So the better and easier way is to use expression.
  */
+// You can use interfaces as well instead of abstract classes or methods. It will work the same way. All you need to do is to remove abstract keywords from methods.
 @Mapper(componentModel = "spring")
 public abstract class AbstractUserMapper_using_abstract_methods {
 
