@@ -1,0 +1,2 @@
+## Both works the same. It will the implementation the same way. You would need an abstract class only if you want to use external class as dependency injection.
+## So better approach will be to use interface only instead of abstract class and directly use expression property for the met6hod of the class you want to use.
