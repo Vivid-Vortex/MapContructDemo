@@ -5,6 +5,10 @@ import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * This Helper class is necessary, because we cannot inject or auto wire into a mapConstruct interface.
+ * Alternative would be use abstract class instead of interface. But interface is more preferable than abstract class.
+ */
 @Component
 @RequiredArgsConstructor
 public class MappingUtils {
